@@ -403,7 +403,7 @@ class AutoModRule:
 
     def to_dict(self) -> AutoModerationRulePayload:
         ret: AutoModerationRulePayload = {
-            'id': str(self.id),
+            'id': str(self.id),            'id': str(self.id),
             'guild_id': str(self.guild.id),
             'name': self.name,
             'creator_id': str(self.creator_id),
