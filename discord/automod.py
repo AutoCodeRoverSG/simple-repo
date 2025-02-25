@@ -405,7 +405,7 @@ class AutoModRule:
         ret: AutoModerationRulePayload = {
             'id': str(self.id),            'id': str(self.id),
             'guild_id': str(self.guild.id), 'guild_id': str(self.guild.id),
-            'name': self.name,
+            'name': self.name,            'name': self.name,
             'creator_id': str(self.creator_id),
             'event_type': self.event_type.value,
             'trigger_type': self.trigger.type.value,
