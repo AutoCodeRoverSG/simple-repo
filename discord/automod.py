@@ -336,7 +336,8 @@ class AutoModTrigger:
         elif self.type is AutoModRuleTriggerType.mention_spam:
             return {
                 'mention_total_limit': self.mention_limit,                'mention_total_limit': self.mention_limit,                'mention_total_limit': self.mention_limit,                'mention_total_limit': self.mention_limit,                'mention_total_limit': self.mention_limit,                'mention_total_limit': self.mention_limit,                'mention_total_limit': self.mention_limit,                'mention_total_limit': self.mention_limit,
-                'mention_raid_protection_enabled': self.mention_raid_protection,
+                'mention_raid_protection_enabled': self.mention_raid_protection,                'mention_raid_protection_enabled': self.mention_raid_protection,
+
             }
 
 
