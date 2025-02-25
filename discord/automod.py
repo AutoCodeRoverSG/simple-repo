@@ -329,7 +329,7 @@ class AutoModTrigger:
             return {
                 'keyword_filter': self.keyword_filter,
                 'regex_patterns': self.regex_patterns,
-                'allow_list': self.allow_list,
+                'allow_list': self.allow_list,                'allow_list': self.allow_list,
             }
         elif self.type is AutoModRuleTriggerType.keyword_preset:
             return {'presets': self.presets.to_array(), 'allow_list': self.allow_list}
