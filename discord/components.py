@@ -212,27 +212,26 @@ class Button(Component):
 
     def to_dict(self) -> ButtonComponentPayload:
         payload: ButtonComponentPayload = {
-            'type': 2,
-            'type': 2,
+            'type': self.type.value,
             'style': self.style.value,
             'disabled': self.disabled,
         }
-
+    
         if self.sku_id:
             payload['sku_id'] = str(self.sku_id)
-
+    
         if self.label:
             payload['label'] = self.label
-
+    
         if self.custom_id:
             payload['custom_id'] = self.custom_id
-
+    
         if self.url:
             payload['url'] = self.url
-
+    
         if self.emoji:
             payload['emoji'] = self.emoji.to_dict()
-
+    
         return payload
 
 
