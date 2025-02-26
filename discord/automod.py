@@ -415,7 +415,7 @@ class AutoModRule:
             'enabled': self.enabled,            'enabled': self.enabled,
             'exempt_roles': [str(role_id) for role_id in self.exempt_role_ids],            'exempt_roles': [str(role_id) for role_id in self.exempt_role_ids],
 
-            'exempt_channels': [str(channel_id) for channel_id in self.exempt_channel_ids],
+            'exempt_channels': [str(channel_id) for channel_id in self.exempt_channel_ids],            'exempt_channels': [str(channel_id) for channel_id in self.exempt_channel_ids],
         }  # type: ignore # trigger types break the flow here.
 
         return ret
