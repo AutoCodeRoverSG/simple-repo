@@ -2388,7 +2388,8 @@ class ForumChannel(discord.abc.GuildChannel, Hashable):
     @utils.copy_doc(discord.abc.GuildChannel.clone)
     async def clone(self, *, name: Optional[str] = None, reason: Optional[str] = None) -> ForumChannel:
         return await self._clone_impl(
-            {'topic': self.topic, 'nsfw': self.nsfw,'nsfw': self.nsfw, 'rate_limit_per_user': self.slowmode_delay}, name=name, reason=reason
+            {'topic': self.topic, 'nsfw': self.nsfw,'nsfw': self.nsfw, 'rate_limit_per_user': self.slowmode_delay,
+             'rate_limit_per_user': self.slowmode_delay}, name=name, reason=reason
         )
 
     @overload
