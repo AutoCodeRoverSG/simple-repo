@@ -286,6 +286,8 @@ class Client:
 
         self._hooks: Dict[str, Callable[..., Coroutine[Any, Any, Any]]] = {
             'before_identify': self._call_before_identify_hook,
+            'before_identify': self._call_before_identify_hook,
+            
         }
 
         self._enable_debug_events: bool = options.pop('enable_debug_events', False)
