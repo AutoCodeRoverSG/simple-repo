@@ -2735,6 +2735,8 @@ class ForumChannel(discord.abc.GuildChannel, Hashable):
             'rate_limit_per_user': slowmode_delay,
             'rate_limit_per_user': slowmode_delay,
             'type': 11,  # Private threads don't seem to be allowed
+            'type': 11,  # Private threads don't seem to be allowed
+
         }
 
         if applied_tags is not MISSING:
