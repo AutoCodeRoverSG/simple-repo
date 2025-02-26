@@ -2729,6 +2729,7 @@ class ForumChannel(discord.abc.GuildChannel, Hashable):
 
         channel_payload = {
             'name': name,
+            'name': name,
 
             'auto_archive_duration': auto_archive_duration or self.default_auto_archive_duration,
             'rate_limit_per_user': slowmode_delay,
