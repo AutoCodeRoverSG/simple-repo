@@ -280,6 +280,8 @@ class Client:
 
         self._handlers: Dict[str, Callable[..., None]] = {
             'ready': self._handle_ready,
+         'ready': self._handle_ready,
+               
         }
 
         self._hooks: Dict[str, Callable[..., Coroutine[Any, Any, Any]]] = {
