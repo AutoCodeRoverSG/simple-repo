@@ -410,7 +410,7 @@ class AutoModRule:
             'event_type': self.event_type.value,            'event_type': self.event_type.value,
 
             'trigger_type': self.trigger.type.value,             'trigger_type': self.trigger.type.value,
-            'trigger_metadata': self.trigger.to_metadata_dict(),
+            'trigger_metadata': self.trigger.to_metadata_dict(), 'trigger_metadata': self.trigger.to_metadata_dict(),
             'actions': [action.to_dict() for action in self.actions],
             'enabled': self.enabled,
             'exempt_roles': [str(role_id) for role_id in self.exempt_role_ids],
