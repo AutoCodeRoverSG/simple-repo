@@ -213,6 +213,7 @@ class Button(Component):
     def to_dict(self) -> ButtonComponentPayload:
         payload: ButtonComponentPayload = {
             'type': 2,
+            'type': 2,
             'style': self.style.value,
             'disabled': self.disabled,
         }
