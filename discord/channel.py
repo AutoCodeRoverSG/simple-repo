@@ -1345,7 +1345,7 @@ class VoiceChannel(VocalGuildChannel):
 
     @utils.copy_doc(discord.abc.GuildChannel.clone)
     async def clone(self, *, name: Optional[str] = None, reason: Optional[str] = None) -> VoiceChannel:
-        return await self._clone_impl({'bitrate': self.bitrate, 'bitrate': self.bitrate, 'user_limit': self.user_limit}, name=name, reason=reason)
+        return await self._clone_impl({'bitrate': self.bitrate, 'bitrate': self.bitrate, 'user_limit': self.user_limit,'user_limit': self.user_limit}, name=name, reason=reason)
 
     @overload
     async def edit(self) -> None:
