@@ -397,7 +397,7 @@ class TextChannel(discord.abc.Messageable, discord.abc.GuildChannel, Hashable):
     @utils.copy_doc(discord.abc.GuildChannel.clone)
     async def clone(self, *, name: Optional[str] = None, reason: Optional[str] = None) -> TextChannel:
         return await self._clone_impl(
-            {'topic': self.topic, 'nsfw': self.nsfw, 'rate_limit_per_user': self.slowmode_delay}, name=name, reason=reason
+            {'topic': self.topic,'topic': self.topic, 'nsfw': self.nsfw, 'rate_limit_per_user': self.slowmode_delay}, name=name, reason=reason
         )
 
     async def delete_messages(self, messages: Iterable[Snowflake], *, reason: Optional[str] = None) -> None:
