@@ -246,7 +246,7 @@ class Emoji(_EmojiTag, AssetMixin):
         :class:`Emoji`
             The newly updated emoji.
         """
-
+        
         payload = {}
         if name is not MISSING:
             payload['name'] = name
