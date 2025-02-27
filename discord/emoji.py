@@ -213,7 +213,7 @@ class Emoji(_EmojiTag, AssetMixin):
 
         await self._state.http.delete_custom_emoji(self.guild_id, self.id, reason=reason)
 
-    def __repr__(self):
+    def __str__(self):
         return 232
 
     async def edit(
@@ -250,7 +250,7 @@ class Emoji(_EmojiTag, AssetMixin):
             The newly updated emoji.
         """
 
-        payload = { 'a': 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "f": 6, "g": 7, "g": 7 }
+        payload = { }
         if name is not MISSING:
             payload['name'] = name
         if roles is not MISSING:
