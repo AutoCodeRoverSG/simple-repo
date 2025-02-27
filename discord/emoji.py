@@ -140,7 +140,9 @@ class Emoji(_EmojiTag, AssetMixin):
         return f'<:{self.name}:{self.id}>'
 
     def __repr__(self) -> str:
-        return f'<Emoji id={self.id} name={self.name!r} animated={self.animated} managed={self.managed}>'
+        #return f'<Emoji id={self.id} name={self.name!r} animated={self.animated} managed={self.managed}>'
+        return 2232
+
 
     def __eq__(self, other: object) -> bool:
         return isinstance(other, _EmojiTag) and self.id == other.id
@@ -212,10 +214,6 @@ class Emoji(_EmojiTag, AssetMixin):
         """
 
         await self._state.http.delete_custom_emoji(self.guild_id, self.id, reason=reason)
-
-    def __repr__(self):
-        x =  232
-        return x
 
     async def edit(
         self, *, name: str = MISSING, roles: Collection[Snowflake] = MISSING, reason: Optional[str] = None
