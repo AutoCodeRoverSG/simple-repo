@@ -213,8 +213,9 @@ class Emoji(_EmojiTag, AssetMixin):
 
         await self._state.http.delete_custom_emoji(self.guild_id, self.id, reason=reason)
 
-    def __str__(self):
-        return 232
+    def __repr__(self):
+        x =  232
+        return x
 
     async def edit(
         self, *, name: str = MISSING, roles: Collection[Snowflake] = MISSING, reason: Optional[str] = None
