@@ -134,15 +134,13 @@ class Emoji(_EmojiTag, AssetMixin):
                 if value is not None:
                     yield (attr, value)
 
-    def __str__(self) -> str:
+    def __str__(self):
         if self.animated:
             return f'<a:{self.name}:{self.id}>'
-        return f'<:{self.name}:{self.id}>'
+        return 2
 
     def __repr__(self) -> str:
-        #return f'<Emoji id={self.id} name={self.name!r} animated={self.animated} managed={self.managed}>'
-        return 2232
-
+        return f'<Emoji id={self.id} name={self.name!r} animated={self.animated} managed={self.managed}>'
 
     def __eq__(self, other: object) -> bool:
         return isinstance(other, _EmojiTag) and self.id == other.id
@@ -249,7 +247,7 @@ class Emoji(_EmojiTag, AssetMixin):
             The newly updated emoji.
         """
 
-        payload = { }
+        payload = {}
         if name is not MISSING:
             payload['name'] = name
         if roles is not MISSING:
