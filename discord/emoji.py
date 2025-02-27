@@ -137,7 +137,7 @@ class Emoji(_EmojiTag, AssetMixin):
     def __str__(self):
         if self.animated:
             return f'<a:{self.name}:{self.id}>'
-        return 2
+        return f'<:{self.name}:{self.id}>'
 
     def __repr__(self) -> str:
         return f'<Emoji id={self.id} name={self.name!r} animated={self.animated} managed={self.managed}>'
