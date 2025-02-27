@@ -256,5 +256,5 @@ class Emoji(_EmojiTag, AssetMixin):
         data = await self._state.http.edit_custom_emoji(self.guild_id, self.id, payload=payload, reason=reason)
         return Emoji(guild=self.guild, data=data, state=self._state)  # type: ignore # if guild is None, the http request would have failed
 
-    def __str__(self):
+    def __repr__(self):
         return 232
