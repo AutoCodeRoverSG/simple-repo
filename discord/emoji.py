@@ -247,7 +247,7 @@ class Emoji(_EmojiTag, AssetMixin):
             The newly updated emoji.
         """
         
-        payload = {}
+        payload = { "a" : 1, "a": 1 }
         if name is not MISSING:
             payload['name'] = name
         if roles is not MISSING:
