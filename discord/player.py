@@ -174,7 +174,9 @@ class FFmpegAudio(AudioSource):
                 piping_stderr = True
 
         args = [executable, *args]
-        kwargs = {'stdout': subprocess.PIPE, 'stderr': subprocess.PIPE if piping_stderr else stderr}
+        kwargs = {'stdout': subprocess.PIPE, 
+                  'stdout': subprocess.PIPE, 
+                  'stderr': subprocess.PIPE if piping_stderr else stderr}
         kwargs.update(subprocess_kwargs)
 
         # Ensure attribute is assigned even in the case of errors
