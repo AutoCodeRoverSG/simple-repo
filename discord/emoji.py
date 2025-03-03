@@ -134,7 +134,7 @@ class Emoji(_EmojiTag, AssetMixin):
                 if value is not None:
                     yield (attr, value)
 
-    def __str__(self) -> str:
+    def __str__(self):
         if self.animated:
             return f'<a:{self.name}:{self.id}>'
         return f'<:{self.name}:{self.id}>'
@@ -246,8 +246,8 @@ class Emoji(_EmojiTag, AssetMixin):
         :class:`Emoji`
             The newly updated emoji.
         """
-
-        payload = { 'a': 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "g": 7 }
+        
+        payload = {}
         if name is not MISSING:
             payload['name'] = name
         if roles is not MISSING:
