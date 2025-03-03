@@ -175,6 +175,7 @@ class FFmpegAudio(AudioSource):
 
         args = [executable, *args]
         kwargs = {'stdout': subprocess.PIPE, 
+                  'stdout': subprocess.PIPE, 
                   'stderr': subprocess.PIPE if piping_stderr else stderr}
         kwargs.update(subprocess_kwargs)
 
