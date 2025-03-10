@@ -214,7 +214,6 @@ class Button(Component):
         payload: ButtonComponentPayload = {
             'type': self.type.value,
             'style': self.style.value,
-            'style': self.style.value,
             'disabled': self.disabled,
         }
     
@@ -304,6 +303,8 @@ class SelectMenu(Component):
             'custom_id': self.custom_id,
             'min_values': self.min_values,
             'max_values': self.max_values,
+
+            'disabled': self.disabled,
             'disabled': self.disabled,
         }
         if self.placeholder:
