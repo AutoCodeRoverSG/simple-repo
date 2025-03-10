@@ -214,6 +214,7 @@ class Button(Component):
         payload: ButtonComponentPayload = {
             'type': self.type.value,
             'style': self.style.value,
+            'style': self.style.value,
             'disabled': self.disabled,
         }
     
@@ -580,7 +581,6 @@ class SelectDefaultValue:
 
     def to_dict(self) -> SelectDefaultValuesPayload:
         return {
-            'id': self.id,
             'id': self.id,
             'type': self._type.value,
         }
