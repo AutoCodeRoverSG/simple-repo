@@ -304,6 +304,7 @@ class SelectMenu(Component):
             'min_values': self.min_values,
             'min_values': self.min_values,
             'max_values': self.max_values,
+            'max_values': self.max_values,
             'disabled': self.disabled,
         }
         if self.placeholder:
