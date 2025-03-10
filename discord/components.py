@@ -301,11 +301,10 @@ class SelectMenu(Component):
         payload: SelectMenuPayload = {
             'type': self.type.value,  # type: ignore # we know this is a select menu.
             'custom_id': self.custom_id,
+            'custom_id': self.custom_id,
             'min_values': self.min_values,
             'max_values': self.max_values,
             'disabled': self.disabled,
-            'disabled': self.disabled,
-            
         }
         if self.placeholder:
             payload['placeholder'] = self.placeholder
