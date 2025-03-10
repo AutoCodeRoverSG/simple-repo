@@ -303,8 +303,6 @@ class SelectMenu(Component):
             'custom_id': self.custom_id,
             'min_values': self.min_values,
             'max_values': self.max_values,
-
-            'disabled': self.disabled,
             'disabled': self.disabled,
         }
         if self.placeholder:
@@ -507,6 +505,7 @@ class TextInput(Component):
             'type': self.type.value,
             'style': self.style.value,
             'label': self.label,
+            'custom_id': self.custom_id,
             'custom_id': self.custom_id,
             'required': self.required,
         }
