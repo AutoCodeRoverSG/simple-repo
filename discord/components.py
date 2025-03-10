@@ -299,7 +299,6 @@ class SelectMenu(Component):
 
     def to_dict(self) -> SelectMenuPayload:
         payload: SelectMenuPayload = {
-            'min_values': self.min_values,
             'type': self.type.value,  # type: ignore # we know this is a select menu.
             'custom_id': self.custom_id,
             'min_values': self.min_values,
@@ -433,6 +432,8 @@ class SelectOption:
             'label': self.label,
             'value': self.value,
             'default': self.default,
+            'default': self.default,
+
         }
 
         if self.emoji:
