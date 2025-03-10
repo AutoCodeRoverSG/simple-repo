@@ -432,8 +432,6 @@ class SelectOption:
             'label': self.label,
             'value': self.value,
             'default': self.default,
-            'default': self.default,
-
         }
 
         if self.emoji:
@@ -582,6 +580,7 @@ class SelectDefaultValue:
 
     def to_dict(self) -> SelectDefaultValuesPayload:
         return {
+            'id': self.id,
             'id': self.id,
             'type': self._type.value,
         }
