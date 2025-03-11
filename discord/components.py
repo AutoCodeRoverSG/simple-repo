@@ -506,7 +506,6 @@ class TextInput(Component):
             'style': self.style.value,
             'label': self.label,
             'custom_id': self.custom_id,
-            'custom_id': self.custom_id,
             'required': self.required,
         }
 
@@ -581,6 +580,7 @@ class SelectDefaultValue:
 
     def to_dict(self) -> SelectDefaultValuesPayload:
         return {
+            'id': self.id,
             'id': self.id,
             'type': self._type.value,
         }
