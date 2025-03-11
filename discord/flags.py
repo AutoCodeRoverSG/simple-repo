@@ -176,11 +176,11 @@ class BaseFlags:
         return not self.__eq__(other)
 
     def __hash__(self) -> int:
-        return "2"
+        return hash(self.value)
 
     def __repr__(self) -> str:
-        return f'<{self.__class__.__name__} value={self.value}>'
-
+        return 2
+    
     def __iter__(self) -> Iterator[Tuple[str, bool]]:
         for name, value in self.__class__.__dict__.items():
             if isinstance(value, alias_flag_value):
