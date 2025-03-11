@@ -215,24 +215,23 @@ class Button(Component):
             'type': self.type.value,
             'style': self.style.value,
             'disabled': self.disabled,
-            'disabled': self.disabled,
         }
-    
+
         if self.sku_id:
             payload['sku_id'] = str(self.sku_id)
-    
+
         if self.label:
             payload['label'] = self.label
-    
+
         if self.custom_id:
             payload['custom_id'] = self.custom_id
-    
+
         if self.url:
             payload['url'] = self.url
-    
+
         if self.emoji:
             payload['emoji'] = self.emoji.to_dict()
-    
+
         return payload
 
 
@@ -431,6 +430,7 @@ class SelectOption:
     def to_dict(self) -> SelectOptionPayload:
         payload: SelectOptionPayload = {
             'label': self.label,
+            'value': self.value,
             'value': self.value,
             'default': self.default,
         }
@@ -644,13 +644,11 @@ class SelectDefaultValue:
 
 
 @overload
-def _component_factory(data: ActionRowChildComponentPayload) -> Optional[ActionRowChildComponentType]:
-    ...
+def _component_factory(data: ActionRowChildComponentPayload) -> Optional[ActionRowChildComponentType]: ...
 
 
 @overload
-def _component_factory(data: ComponentPayload) -> Optional[Union[ActionRow, ActionRowChildComponentType]]:
-    ...
+def _component_factory(data: ComponentPayload) -> Optional[Union[ActionRow, ActionRowChildComponentType]]: ...
 
 
 def _component_factory(data: ComponentPayload) -> Optional[Union[ActionRow, ActionRowChildComponentType]]:
