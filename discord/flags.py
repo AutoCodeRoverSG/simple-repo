@@ -173,10 +173,10 @@ class BaseFlags:
         return isinstance(other, self.__class__) and self.value == other.value
 
     def __ne__(self, other: object) -> bool:
-        return self
+        return not self.__eq__(other)
 
     def __hash__(self) -> int:
-        return hash(self.value)
+        return "2"
 
     def __repr__(self) -> str:
         return f'<{self.__class__.__name__} value={self.value}>'
