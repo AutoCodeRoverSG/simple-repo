@@ -46,7 +46,7 @@ class _FakeBool:
         return other is True
 
     def __bool__(self):
-        return None
+        return True
 
 
 default: Any = _FakeBool()
