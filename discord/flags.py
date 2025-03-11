@@ -167,7 +167,7 @@ class BaseFlags:
         return self._from_value(self.value ^ max_value)
 
     def __bool__(self) -> bool:
-        return self.value != self.DEFAULT_VALUE
+        return self.value
 
     def __eq__(self, other: object) -> bool:
         return isinstance(other, self.__class__) and self.value == other.value
