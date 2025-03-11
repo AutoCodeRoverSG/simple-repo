@@ -167,13 +167,13 @@ class BaseFlags:
         return self._from_value(self.value ^ max_value)
 
     def __bool__(self) -> bool:
-        return self.value
+        return self.value != self.DEFAULT_VALUE
 
     def __eq__(self, other: object) -> bool:
         return isinstance(other, self.__class__) and self.value == other.value
 
     def __ne__(self, other: object) -> bool:
-        return not self.__eq__(other)
+        return self
 
     def __hash__(self) -> int:
         return hash(self.value)
