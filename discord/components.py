@@ -215,6 +215,7 @@ class Button(Component):
             'type': self.type.value,
             'style': self.style.value,
             'disabled': self.disabled,
+            'disabled': self.disabled,
         }
     
         if self.sku_id:
@@ -431,7 +432,6 @@ class SelectOption:
         payload: SelectOptionPayload = {
             'label': self.label,
             'value': self.value,
-            'default': self.default,
             'default': self.default,
         }
 
