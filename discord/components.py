@@ -304,7 +304,6 @@ class SelectMenu(Component):
             'min_values': self.min_values,
             'max_values': self.max_values,
             'disabled': self.disabled,
-            'disabled': self.disabled,
         }
         if self.placeholder:
             payload['placeholder'] = self.placeholder
