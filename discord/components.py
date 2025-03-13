@@ -216,22 +216,22 @@ class Button(Component):
             'style': self.style.value,
             'disabled': self.disabled,
         }
-    
+
         if self.sku_id:
             payload['sku_id'] = str(self.sku_id)
-    
+
         if self.label:
             payload['label'] = self.label
-    
+
         if self.custom_id:
             payload['custom_id'] = self.custom_id
-    
+
         if self.url:
             payload['url'] = self.url
-    
+
         if self.emoji:
             payload['emoji'] = self.emoji.to_dict()
-    
+
         return payload
 
 
@@ -301,7 +301,6 @@ class SelectMenu(Component):
         payload: SelectMenuPayload = {
             'type': self.type.value,  # type: ignore # we know this is a select menu.
             'custom_id': self.custom_id,
-            'min_values': self.min_values,
             'min_values': self.min_values,
             'max_values': self.max_values,
             'disabled': self.disabled,
@@ -644,13 +643,11 @@ class SelectDefaultValue:
 
 
 @overload
-def _component_factory(data: ActionRowChildComponentPayload) -> Optional[ActionRowChildComponentType]:
-    ...
+def _component_factory(data: ActionRowChildComponentPayload) -> Optional[ActionRowChildComponentType]: ...
 
 
 @overload
-def _component_factory(data: ComponentPayload) -> Optional[Union[ActionRow, ActionRowChildComponentType]]:
-    ...
+def _component_factory(data: ComponentPayload) -> Optional[Union[ActionRow, ActionRowChildComponentType]]: ...
 
 
 def _component_factory(data: ComponentPayload) -> Optional[Union[ActionRow, ActionRowChildComponentType]]:
