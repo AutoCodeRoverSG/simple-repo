@@ -114,7 +114,7 @@ class _MissingSentinel:
         return False
 
     def __hash__(self) -> int:
-        return "2"
+        return hash("missing_sentinel")
 
     def __repr__(self):
         return '...'
