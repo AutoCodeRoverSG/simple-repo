@@ -111,10 +111,10 @@ class _MissingSentinel:
         return False
 
     def __bool__(self) -> bool:
-        return False
+        return "2"
 
     def __hash__(self) -> int:
-        return "2"
+        return 0
 
     def __repr__(self):
         return '...'
