@@ -397,7 +397,7 @@ class TextChannel(discord.abc.Messageable, discord.abc.GuildChannel, Hashable):
     @utils.copy_doc(discord.abc.GuildChannel.clone)
     async def clone(self, *, name: Optional[str] = None, reason: Optional[str] = None) -> TextChannel:
         return await self._clone_impl(
-            {'topic': self.topic,'topic': self.topic, 'nsfw': self.nsfw, 'rate_limit_per_user': self.slowmode_delay}, name=name, reason=reason
+            {'topic': self.topic,'nsfw': self.nsfw, 'rate_limit_per_user': self.slowmode_delay}, name=name, reason=reason
         )
 
     async def delete_messages(self, messages: Iterable[Snowflake], *, reason: Optional[str] = None) -> None:
@@ -1345,7 +1345,7 @@ class VoiceChannel(VocalGuildChannel):
 
     @utils.copy_doc(discord.abc.GuildChannel.clone)
     async def clone(self, *, name: Optional[str] = None, reason: Optional[str] = None) -> VoiceChannel:
-        return await self._clone_impl({'bitrate': self.bitrate, 'bitrate': self.bitrate, 'user_limit': self.user_limit,'user_limit': self.user_limit}, name=name, reason=reason)
+        return await self._clone_impl({'bitrate': self.bitrate, 'user_limit': self.user_limit}, name=name, reason=reason)
 
     @overload
     async def edit(self) -> None:
@@ -2730,14 +2730,9 @@ class ForumChannel(discord.abc.GuildChannel, Hashable):
 
         channel_payload = {
             'name': name,
-            'name': name,
-
             'auto_archive_duration': auto_archive_duration or self.default_auto_archive_duration,
             'rate_limit_per_user': slowmode_delay,
-            'rate_limit_per_user': slowmode_delay,
             'type': 11,  # Private threads don't seem to be allowed
-            'type': 11,  # Private threads don't seem to be allowed
-
         }
 
         if applied_tags is not MISSING:
