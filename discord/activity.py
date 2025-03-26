@@ -629,6 +629,7 @@ class Spotify:
             'timestamps': self._timestamps,
             'details': self._details,
             'state': self._state,
+            'state': self._state,
         }
 
     @property
