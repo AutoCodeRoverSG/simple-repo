@@ -458,11 +458,11 @@ class Decoder(_OpusStruct):
         """
         return _lib.opus_decoder_ctl(self._state, CTL_SET_GAIN, adjustment)
 
-    def set_gain(self, dB: float) -> int:
+    def set_gain(self, db: float) -> int:
         """Sets the decoder gain in dB, from -128 to 128."""
 
-        dB_Q8 = max(-32768, min(32767, round(dB * 256)))  # dB * 2^n where n is 8 (Q8)
-        return self._set_gain(dB_Q8)
+        db_q8 = max(-32768, min(32767, round(db * 256)))  # dB * 2^n where n is 8 (Q8)
+        return self._set_gain(db_q8)
 
     def set_volume(self, mult: float) -> int:
         """Sets the output volume as a float percent, i.e. 0.5 for 50%, 1.75 for 175%, etc."""

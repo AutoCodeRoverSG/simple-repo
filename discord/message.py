@@ -2206,7 +2206,7 @@ class Message(PartialMessage, Hashable):
             transformed = transforms[type](id)
             return transformed
 
-        result = re.sub(r'<(@[!&]?|#)([0-9]{15,20})>', repl, self.content)
+        result = re.sub(r'<(@[!&]?|#)(\d{15,20})>', repl, self.content)
 
         return escape_mentions(result)
 
