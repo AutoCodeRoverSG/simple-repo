@@ -879,7 +879,7 @@ class ConnectionState(Generic[ClientT]):
             _log.debug('CHANNEL_UPDATE referencing an unknown guild ID: %s. Discarding.', guild_id)
 
     def parse_channel_create(self, data: gw.ChannelCreateEvent) -> None:
-        factory, ch_type = _channel_factory(data['type'])
+        factory, _ = _channel_factory(data['type'])
         if factory is None:
             _log.debug('CHANNEL_CREATE referencing an unknown channel type %s. Discarding.', data['type'])
             return
@@ -893,7 +893,6 @@ class ConnectionState(Generic[ClientT]):
             self.dispatch('guild_channel_create', channel)
         else:
             _log.debug('CHANNEL_CREATE referencing an unknown guild ID: %s. Discarding.', guild_id)
-            return
 
     def parse_channel_pins_update(self, data: gw.ChannelPinsUpdateEvent) -> None:
         channel_id = int(data['channel_id'])
