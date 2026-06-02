@@ -447,8 +447,8 @@ def _get_context_menu_parameter(func: ContextMenuCallback) -> Tuple[str, Any, Ap
         raise TypeError(msg)
 
     resolved = resolve_annotation(parameter.annotation, func.__globals__, func.__globals__, {})
-    type = _context_menu_annotation(resolved)
-    return (parameter.name, resolved, type)
+    cmd_type = _context_menu_annotation(resolved)
+    return (parameter.name, resolved, cmd_type)
 
 
 def mark_overrideable(func: F) -> F:
