@@ -1784,7 +1784,7 @@ class Messageable:
             if not around:
                 return [], None, 0
 
-            around_id = around.id if around else None
+            around_id = around.id
             data = await self._state.http.logs_from(channel.id, retrieve, around=around_id)
 
             return data, None, 0
