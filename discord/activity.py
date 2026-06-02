@@ -529,7 +529,7 @@ class Streaming(BaseActivity):
         except KeyError:
             return None
         else:
-            return name[7:] if name[:7] == 'twitch:' else None
+            return name[7:] if name.startswith('twitch:') else None
 
     def to_dict(self) -> Dict[str, Any]:
         ret: Dict[str, Any] = {
@@ -684,7 +684,7 @@ class Spotify:
     def album_cover_url(self) -> str:
         """:class:`str`: The album cover image URL from Spotify's CDN."""
         large_image = self._assets.get('large_image', '')
-        if large_image[:8] != 'spotify:':
+        if not large_image.startswith('spotify:'):
             return ''
         album_image_id = large_image[8:]
         return 'https://i.scdn.co/image/' + album_image_id
