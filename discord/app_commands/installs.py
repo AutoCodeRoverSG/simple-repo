@@ -50,8 +50,8 @@ class AppInstallationType:
 
     __slots__ = ('_guild', '_user')
 
-    GUILD: ClassVar[int] = 0
-    USER: ClassVar[int] = 1
+    _GUILD_TYPE: ClassVar[int] = 0
+    _USER_TYPE: ClassVar[int] = 1
 
     def __init__(self, *, guild: Optional[bool] = None, user: Optional[bool] = None):
         self._guild: Optional[bool] = guild
@@ -95,18 +95,18 @@ class AppInstallationType:
     def _from_value(cls, value: Sequence[InteractionInstallationType]) -> Self:
         self = cls()
         for x in value:
-            if x == cls.GUILD:
+            if x == cls._GUILD_TYPE:
                 self._guild = True
-            elif x == cls.USER:
+            elif x == cls._USER_TYPE:
                 self._user = True
         return self
 
     def to_array(self) -> List[InteractionInstallationType]:
         values = []
         if self._guild:
-            values.append(self.GUILD)
+            values.append(self._GUILD_TYPE)
         if self._user:
-            values.append(self.USER)
+            values.append(self._USER_TYPE)
         return values
 
 

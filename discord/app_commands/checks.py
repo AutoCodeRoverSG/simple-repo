@@ -397,14 +397,11 @@ def _create_cooldown_decorator(
 
     async def predicate(interaction: Interaction) -> bool:
         bucket = await get_bucket(interaction)
-        if bucket is None:
-            return True
-
-        retry_after = bucket.update_rate_limit(interaction.created_at.timestamp())
-        if retry_after is None:
-            return True
-
-        raise CommandOnCooldown(bucket, retry_after)
+        if bucket is not None:
+            retry_after = bucket.update_rate_limit(interaction.created_at.timestamp())
+            if retry_after is not None:
+                raise CommandOnCooldown(bucket, retry_after)
+        return True
 
     return check(predicate)
 
