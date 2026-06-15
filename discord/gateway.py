@@ -297,11 +297,11 @@ class DiscordWebSocket:
     DEFAULT_GATEWAY    = yarl.URL('wss://gateway.discord.gg/')
     DISPATCH           = 0
     HEARTBEAT          = 1
-    IDENTIFY           = 2
+    IDENTIFY_OP        = 2
     PRESENCE           = 3
     VOICE_STATE        = 4
     VOICE_PING         = 5
-    RESUME             = 6
+    OP_RESUME          = 6
     RECONNECT          = 7
     REQUEST_MEMBERS    = 8
     INVALIDATE_SESSION = 9
@@ -440,7 +440,7 @@ class DiscordWebSocket:
     async def identify(self) -> None:
         """Sends the IDENTIFY packet."""
         payload = {
-            'op': self.IDENTIFY,
+            'op': self.IDENTIFY_OP,
             'd': {
                 'token': self.token,
                 'properties': {
@@ -475,7 +475,7 @@ class DiscordWebSocket:
     async def resume(self) -> None:
         """Sends the RESUME packet."""
         payload = {
-            'op': self.RESUME,
+            'op': self.OP_RESUME,
             'd': {
                 'seq': self.sequence,
                 'session_id': self.session_id,
