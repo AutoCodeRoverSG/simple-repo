@@ -110,6 +110,11 @@ class AppInstallationType:
         return values
 
 
+_CONTEXT_TYPE_GUILD: int = 0
+_CONTEXT_TYPE_DM_CHANNEL: int = 1
+_CONTEXT_TYPE_PRIVATE_CHANNEL: int = 2
+
+
 class AppCommandContext:
     r"""Wraps up the Discord :class:`~discord.app_commands.Command` execution context.
 
@@ -124,10 +129,6 @@ class AppCommandContext:
     private_channel: Optional[:class:`bool`]
         Whether the context allows usage in a DM or a GDM channel.
     """
-
-    GUILD: ClassVar[int] = 0
-    DM_CHANNEL: ClassVar[int] = 1
-    PRIVATE_CHANNEL: ClassVar[int] = 2
 
     __slots__ = ('_guild', '_dm_channel', '_private_channel')
 
@@ -188,20 +189,20 @@ class AppCommandContext:
     def _from_value(cls, value: Sequence[InteractionContextType]) -> Self:
         self = cls()
         for x in value:
-            if x == cls.GUILD:
+            if x == _CONTEXT_TYPE_GUILD:
                 self._guild = True
-            elif x == cls.DM_CHANNEL:
+            elif x == _CONTEXT_TYPE_DM_CHANNEL:
                 self._dm_channel = True
-            elif x == cls.PRIVATE_CHANNEL:
+            elif x == _CONTEXT_TYPE_PRIVATE_CHANNEL:
                 self._private_channel = True
         return self
 
     def to_array(self) -> List[InteractionContextType]:
         values = []
         if self._guild:
-            values.append(self.GUILD)
+            values.append(_CONTEXT_TYPE_GUILD)
         if self._dm_channel:
-            values.append(self.DM_CHANNEL)
+            values.append(_CONTEXT_TYPE_DM_CHANNEL)
         if self._private_channel:
-            values.append(self.PRIVATE_CHANNEL)
+            values.append(_CONTEXT_TYPE_PRIVATE_CHANNEL)
         return values
