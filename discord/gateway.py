@@ -732,7 +732,7 @@ class DiscordWebSocket:
 
         await self.send_as_json(payload)
 
-    async def voice_state(
+    async def update_voice_state(
         self,
         guild_id: int,
         channel_id: Optional[int],
@@ -840,7 +840,7 @@ class DiscordVoiceWebSocket:
 
     send_heartbeat = send_as_json
 
-    async def resume(self) -> None:
+    async def send_resume(self) -> None:
         state = self._connection
         payload = {
             'op': self.RESUME,
@@ -852,7 +852,7 @@ class DiscordVoiceWebSocket:
         }
         await self.send_as_json(payload)
 
-    async def identify(self) -> None:
+    async def send_identify(self) -> None:
         state = self._connection
         payload = {
             'op': self.IDENTIFY,
@@ -885,13 +885,13 @@ class DiscordVoiceWebSocket:
         ws.thread_id = threading.get_ident()
 
         if resume:
-            await ws.resume()
+            await ws.send_resume()
         else:
-            await ws.identify()
+            await ws.send_identify()
 
         return ws
 
-    async def select_protocol(self, ip: str, port: int, mode: int) -> None:
+    async def select_voice_protocol(self, ip: str, port: int, mode: int) -> None:
         payload = {
             'op': self.SELECT_PROTOCOL,
             'd': {
@@ -906,7 +906,7 @@ class DiscordVoiceWebSocket:
 
         await self.send_as_json(payload)
 
-    async def client_connect(self) -> None:
+    async def send_client_connect(self) -> None:
         payload = {
             'op': self.CLIENT_CONNECT,
             'd': {
@@ -965,7 +965,7 @@ class DiscordVoiceWebSocket:
         _log.debug('received supported encryption modes: %s', ', '.join(modes))
 
         mode = modes[0]
-        await self.select_protocol(state.ip, state.port, mode)
+        await self.select_voice_protocol(state.ip, state.port, mode)
         _log.debug('selected the voice protocol for use (%s)', mode)
 
     async def discover_ip(self) -> Tuple[str, int]:
